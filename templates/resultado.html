@@ -1,117 +1,97 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Fim do Desafio!</title>
+    <title>Resultado - Desafio do Orçamento</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
-
 </head>
-
 
 <body>
 
     <header>
-
-        <h1><div class="icone">
-          <img src="{{url_for('static', filename='imagens/trofeu.png')}}" alt="trofeu">
-        </div>
-          Fim do Desafio!</h1>
-
+        <h1>Desafio do Orçamento</h1>
         <p>Confira o resultado da sua montagem.</p>
-
     </header>
-
 
     <main>
 
-        <section class="resultado">
+        {% if falhou %}
 
-            <h2>Seu resultado</h2>
+            <!-- Resultado quando ultrapassa o orçamento -->
 
+            <section class="resultado falha">
 
-            <div class="resultado-card">
-
-                <h3>💰 Orçamento</h3>
-
-                <strong>
-                    R$ {{ orcamento }}
-                </strong>
-
-            </div>
-
-
-            <div class="resultado-card">
-
-                <h3>🛒 Valor gasto</h3>
-
-                <strong>
-                    R$ {{ total }}
-                </strong>
-
-            </div>
-
-
-            <div class="resultado-card">
-
-                <h3>🎯 Pontuação</h3>
-
-                <strong>
-                    {{ pontuacao }} pontos
-                </strong>
-
-            </div>
-
-
-            <div class="resultado-card">
-
-                <h3>⚡ Desempenho</h3>
-
-                <strong>
-                    {{ desempenho }}
-                </strong>
-
-            </div>
-
-
-            <div class="resultado-card">
-
-                <h3>📋 Resultado</h3>
+                <h2>O teste falhou!</h2>
 
                 <p>
-                    {{ resultado }}
+                    Ultrapassou os R$ 5.000.
                 </p>
 
-            </div>
+                <div class="valor">
+                    <span>Valor gasto</span>
+                    <strong>R$ {{ "%.2f"|format(total) }}</strong>
+                </div>
 
+                <div class="valor">
+                    <span>Orçamento máximo</span>
+                    <strong>R$ {{ "%.2f"|format(orcamento) }}</strong>
+                </div>
 
-            <h2 class="obrigado">
-                Obrigado por jogar! ❤️
-            </h2>
+                <p>
+                    Você ultrapassou o orçamento de R$5.000!
+                </p>
 
+            </section>
 
-            <a href="/" class="botao-voltar">
-                🔄 JOGAR NOVAMENTE
-            </a>
+        {% else %}
 
-        </section>
+            <!-- Resultado quando está dentro do orçamento -->
+
+            <section class="resultado sucesso">
+
+                <h2>Fim do Desafio!</h2>
+
+                <p>
+                    Sua montagem ficou dentro do orçamento.
+                </p>
+
+                <div class="valor">
+                    <span>Valor gasto</span>
+                    <strong>R$ {{ "%.2f"|format(total) }}</strong>
+                </div>
+
+                <div class="valor">
+                    <span>Orçamento</span>
+                    <strong>R$ {{ "%.2f"|format(orcamento) }}</strong>
+                </div>
+
+                <div class="pontuacao">
+                    <span>Pontuação</span>
+                    <strong>{{ pontuacao }}</strong>
+                </div>
+
+                <h3>{{ desempenho }}</h3>
+
+                <p>
+                    Obrigado por jogar!
+                </p>
+
+            </section>
+
+        {% endif %}
+
+        <a href="/" class="voltar">
+            Jogar novamente
+        </a>
 
     </main>
 
-
     <footer>
-
-        <p>
-            Projeto desenvolvido para a Feira de Tecnologia
-        </p>
-
+        <p>Projeto para a feira Bartotec<br>1° Informatica-N</p>
     </footer>
 
 </body>
