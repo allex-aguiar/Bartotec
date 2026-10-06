@@ -1,9 +1,8 @@
-/* ================================= */
-/* TELA FINAL - FIM DO DESAFIO       */
-/* ================================= */
-
-
-/* Fundo da página */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -13,18 +12,18 @@ body {
 }
 
 
-/* Cabeçalho da tela final */
+/* Cabeçalho */
 
 header {
     text-align: center;
-    padding: 45px 20px 35px;
+    padding: 40px 20px 30px;
     background: #111827;
     border-bottom: 1px solid #334155;
 }
 
 header h1 {
     color: #38bdf8;
-    font-size: 38px;
+    font-size: 36px;
     margin-bottom: 10px;
 }
 
@@ -38,110 +37,136 @@ header p {
 
 main {
     width: 90%;
-    max-width: 750px;
-    margin: 40px auto;
+    max-width: 700px;
+    margin: 50px auto;
 }
 
 
-/* Área dos resultados */
+/* Caixa de resultado */
 
 .resultado {
-    width: 100%;
-    text-align: center;
-}
-
-.resultado h2 {
-    color: #f8fafc;
-    font-size: 25px;
-    margin: 30px 0 25px;
-}
-.icone img{
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    vertical-align: middle;
-}
-
-
-/* Cards */
-
-.resultado-card {
     background: #1e293b;
     border: 1px solid #334155;
     border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transition: 0.2s;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 
-/* Efeito quando passa o mouse */
+/* Título */
 
-.resultado-card:hover {
-    border-color: #38bdf8;
-    transform: translateY(-3px);
+.resultado h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
 }
 
-
-/* Títulos dos cards */
-
-.resultado-card h3 {
+.resultado p {
     color: #94a3b8;
     font-size: 17px;
-    margin-bottom: 12px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+
+/* Resultado de falha */
+
+.falha {
+    border-color: #ef4444;
+}
+
+.falha h2 {
+    color: #ef4444;
+}
+
+
+/* Resultado de sucesso */
+
+.sucesso {
+    border-color: #38bdf8;
+}
+
+.sucesso h2 {
+    color: #38bdf8;
 }
 
 
 /* Valores */
 
-.resultado-card strong {
+.valor {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.valor span {
     display: block;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.valor strong {
+    font-size: 25px;
     color: #38bdf8;
-    font-size: 32px;
 }
 
 
-/* Mensagem do resultado */
+/* Pontuação */
 
-.resultado-card p {
-    color: #f8fafc;
-    font-size: 18px;
-    line-height: 1.5;
+.pontuacao {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
 }
 
+.pontuacao span {
+    display: block;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
 
-/* Obrigado por jogar */
-
-.resultado .obrigado {
+.pontuacao strong {
+    font-size: 35px;
     color: #38bdf8;
-    font-size: 27px;
-    margin-top: 40px;
-    margin-bottom: 10px;
 }
 
 
-/* Botão */
+/* Texto de desempenho */
 
-.botao-voltar {
+.sucesso h3 {
+    font-size: 28px;
+    color: #38bdf8;
+    margin: 30px 0 10px;
+}
+
+
+/* Botão jogar novamente */
+
+.voltar {
     display: block;
     width: 100%;
-    max-width: 400px;
-    margin: 30px auto 0;
-    padding: 17px;
+    margin-top: 25px;
+    padding: 16px;
+
     background: #38bdf8;
     color: #082f49;
+
     border-radius: 10px;
+
+    text-align: center;
+    text-decoration: none;
+
     font-size: 17px;
     font-weight: bold;
-    text-decoration: none;
+
     transition: 0.2s;
 }
 
-
-/* Efeito do botão */
-
-.botao-voltar:hover {
+.voltar:hover {
     background: #7dd3fc;
     transform: translateY(-2px);
 }
@@ -156,27 +181,25 @@ footer {
 }
 
 
-/* Celulares */
+/* Responsividade */
 
-@media (max-width: 500px) {
-    header {
-        padding: 35px 15px 25px;
+@media (max-width: 600px) {
+
+    main {
+        width: 90%;
+        margin: 30px auto;
     }
+
+    .resultado {
+        padding: 30px 20px;
+    }
+
+    .resultado h2 {
+        font-size: 27px;
+    }
+
     header h1 {
         font-size: 28px;
     }
-    main {
-        width: 92%;
 
-        margin: 25px auto;
-    }
-    .resultado-card {
-        padding: 22px;
-    }
-    .resultado-card strong {
-        font-size: 26px;
-    }
-    .botao-voltar {
-        max-width: 100%;
-    }
 }
